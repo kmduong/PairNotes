@@ -1,0 +1,42 @@
+div#textEditor{
+	margin: 0 auto;
+	width: 750px;
+	height: 300px;
+}
+div#richTextArea{
+	border: 2px solid rgb(40,110,89);
+	height: 100%;
+	width: 746px;
+}
+div#theRibbon{
+	width: 97.5%;
+	border-bottom: none;
+	padding: 10px;
+	color: white;
+	background-color: rgb(40, 110, 89);
+	border-radius: 8px 8px 0px 0px;
+}
+div#theRibbon > button{
+	color: white;
+	border: none;
+	outline: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+div#theRibbon > input {
+	border: none;
+	outline: none;
+	background-color: transparent;
+}
+
+div#theRibbon > button:hover{
+	background-color: rgb(20,90,70);
+	transition: all 0.3s linear 0s;
+}
+
+
+iframe#theWYSIWYG{
+	height: 100%;
+	width: 100%;
+}

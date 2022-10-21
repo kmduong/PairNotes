@@ -1,0 +1,111 @@
+<mat-toolbar color="primary" class="sticky" >
+    <!---  <button
+		mat-raised-button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button> --->
+	  <button mat-raised-button color="accent" (click)="drawer.toggle()">
+	  Document Info
+	  </button>
+
+	  <button mat-button [matMenuTriggerFor]="menu">Courses</button>
+	  <mat-menu #menu="matMenu">
+	  <button mat-menu-item>CPS630</button>
+      <button mat-menu-item>CPS506</button>
+	  <button mat-menu-item>D Mason</button>
+	  <button mat-menu-item>SmallTalk</button>
+      </mat-menu>
+	 
+	  
+	  <form class="search-form">
+		 <mat-form-field class="search">
+			<input matInput [(ngModel)]='noteSearch' 
+			(ngModelChange)="sendSearch($event)"
+			placeholder="Search" name='noteSearch'>
+		 </mat-form-field>
+      </form>
+		<span class="fill-space"></span>
+		
+	  <div>
+        <!-- template will replace this div -->
+	  </div>
+	  <ng-template #guest>
+	  <button mat-button [matMenuTriggerFor]="menuD" >Account</button>
+	  <mat-menu #menuD="matMenu">
+	  <button mat-menu-item>Sign In</button>
+      </mat-menu>
+	  </ng-template>
+	  
+	  <ng-template #authenticated>
+	  <button mat-button [matMenuTriggerFor]="menuD" >Hello, {{ user.displayName }}
+	  </button>
+	  <mat-menu #menuD="matMenu">
+	  <button mat-menu-item>Settings</button>
+	  <button mat-menu-item>Sign Out</button>
+      </mat-menu>
+	  </ng-template>
+	  
+    </mat-toolbar>
+	
+	
+<mat-sidenav-container  class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" >
+    <mat-toolbar color="primary" >Title of Document</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#">Link 1</a>
+      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item href="#">Link 3</a>
+	  <h2>Note Info</h2>
+      <h5>Legends:</h5>
+	  <h5>{{Legends}}</h5>
+      <h5>Tags: {{Tags}}</h5>
+      <h5>User Rating:</h5>
+	  <h5>{{Rating1}}</h5>
+      <h5>Note Rating</h5>
+	  <h5>{{Rating2}}</h5>
+	  <h5>Approval:{{yesOrNo}}</h5>
+	  <h5>Date:{{date}}</h5>
+      <br><br>
+	  <button mat-raised-button color="accent" (click)="drawer.toggle()">
+	  Close
+	  </button>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    
+    <!-- Add Content Here -->
+	
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<!---
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#">Link 1</a>
+      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item href="#">Link 3</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="sticky">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon"></mat-icon>
+      </button>
+      <span></span>
+    </mat-toolbar>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+--->

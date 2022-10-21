@@ -1,0 +1,36 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 400px;
+  box-shadow: 3px 0 6px rgba(0,0,0,.24);
+  background-color: grey;
+  text-align: center;
+  font-size: 20px;
+}
+
+.sticky {
+    box-shadow: 0 3px 12px 0 rgba(0,0,0,.08);
+    top: 0;
+    height: 50px;
+    width: 100%;
+}
+
+.sidenav .mat-toolbar {
+	height: 50px;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  z-index: 1;
+}
+
+.search {
+  font-size: 16px;
+}
+
+
+.fill-space {
+  flex: 1 1 auto;
+}
