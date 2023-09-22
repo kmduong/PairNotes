@@ -1,0 +1,24 @@
+<div style="margin: auto; width: 50%; text-align:center; margin-top: 4%">
+<div *ngIf="auth.user$ | async as user">
+		<h3>Howdy, {{ user.displayName }}</h3>
+		<br>
+		<form class="name-form">
+		 <mat-form-field class="displayName">
+			<input  matInput [(ngModel)]='nameChange' 
+			placeholder="Enter Name" name='nameChange'>
+		 </mat-form-field>
+		 <button class="btn btn-success" (click)="updateName(user)">Update Name</button>
+      </form>
+
+		<p>Courses: <li *ngFor="let listofCourses of user.courses"> {{listofCourses}} </li> </p>
+		<div>
+        <mat-form-field class="displayName">
+			<input matInput [(ngModel)]='courseName' 
+			placeholder="Enter Course" name='courseName' (keyup.enter)="addCourse(user)">
+		 </mat-form-field>
+		<button class="btn btn-success" (click)="addCourse(user)">Add Course</button>
+		<button class="btn btn-danger" (click)="removeCourse(user)">Remove Course</button>
+		</div>
+        <button class="btn btn-primary" (click)="auth.signOut()">Logout</button>
+</div>
+</div>

@@ -5,6 +5,13 @@
 export const environment = {
   production: false,
   firebaseConfig : {
+	  /*
+    apiKey: "AIzaSyAjxcvUlEvwBVQgwU-xM8fmKHYYiPoEMjw",
+    authDomain: "pairnotesfinal.firebaseapp.com",
+    databaseURL: "https://pairnotesfinal.firebaseio.com",
+    projectId: "pairnotesfinal",
+    storageBucket: "pairnotesfinal.appspot.com",
+    messagingSenderId: "657165211481" */
     apiKey: "AIzaSyAjxcvUlEvwBVQgwU-xM8fmKHYYiPoEMjw",
     authDomain: "pairnotesfinal.firebaseapp.com",
     databaseURL: "https://pairnotesfinal.firebaseio.com",

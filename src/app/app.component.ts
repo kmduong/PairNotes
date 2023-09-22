@@ -1,21 +1,34 @@
 import { Component , OnInit , ViewChild, ElementRef } from '@angular/core';
-import * as $ from 'jquery';
-import { AngularFirestore } from '@angular/fire/firestore';
+import {NgForm} from '@angular/forms';
+import { AuthGuard } from './services/auth.guard';
 
+import { AuthService} from './services/auth.service'
+
+import { NotesService} from './services/notes.service'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+
 export class AppComponent  implements OnInit {
 	@ViewChild('theWYSIWYG') iframe: ElementRef
 	@ViewChild('fontSizeChanger') fontSize: ElementRef
 	srcDocContent:string;
 	note = 'All';
+	master = 'Testing';
   title = 'pairnotesfinal';
   onLoad() { }
-  ngOnInit() {
+  constructor( public auth: AuthService, public notes: NotesService) {
+
+				
+  }
+  ngOnInit(
+ //this.router.navigate(['/login'])
+  ) {
+	  /*
 	  var editor = this.iframe.nativeElement.contentDocument ;
 	  editor.designMode = 'on';
 	  for(var i = 10 ; i >= 1 ; i-- ) {
@@ -23,11 +36,25 @@ export class AppComponent  implements OnInit {
 		  dropdown.text = i.toString();
 		  this.fontSize.nativeElement.add(dropdown, 0);
 	  }
-		
+		*/
   }
+	//+++++++++++++++++++++++++++++OLD EDITOR +++++++++++++++++++++++++++++++++++++++++
   receiveSearch($event) {
 	  this.note = $event
   }
+  
+  setFields(change){
+	  if (change.userScore){
+	  }
+	  else
+	  {
+		  console.log("inside the if statement");
+		  change.userScore = 0;
+		  change.numberOfRatings = 0;
+		  this.auth.updateUserData(change);
+	  }
+  }
+  /*
   handleBold(){
 		let editor = this.iframe.nativeElement.contentDocument ;
 		console.log(editor.body.innerHTML); // this is where the content document is stored
@@ -89,14 +116,28 @@ export class AppComponent  implements OnInit {
   handleRedo(){
 		let editor = this.iframe.nativeElement.contentDocument;
 		editor.execCommand("redo", false, null);
-  }
-  save(){
-		let data = this.iframe.nativeElement.innerHTML;
-		var url = 'swag.html';
-		$.ajax({url: url,type:"POST",data: data});
-  }
-  items: Observable<any[]>;
-  constructor(db: AngularFirestore) {
-		this.items = db.collection('items').valueChanges();
-  }
+  } */
+// +++++++++++++++++++++++++++++++++++++++Old editor END++++++++++++++++++++++++++
+	
+// -----------------------------------syncfusion editor
+name='';
+lecture='';
+course='';
+	onSubmit(form: NgForm): void {
+	  alert(form.value.name);
+	}
+	onKey(form: NgForm) { // without type info
+    alert(form.value.getText);
+		}
+		onSubmit2() {
+			//console.log(this.name);
+			//var id = this.afs.createId();
+			//var temp = this.notes.createNote(this.name, this.lecture, this.course);
+
+		}
+	 public readonly: boolean = true;
+  public value: string = `
+    <p>The RichTextEditor triggers events based on its actions. </p>
+	  <p> The events can be used as an extension point to perform custom operations.</p>
+	  <p>https://www.syncfusion.com/kb/9864/how-to-get-started-easily-with-syncfusion-angular-7-rich-text-editor</p>`
 }

@@ -1,0 +1,13 @@
+<div id="theTextEditor" style="width: 50%; margin: auto ">
+	<ejs-richtexteditor id='defaultRTE' [(value)]='value' TopLevel ='False' ></ejs-richtexteditor>
+ </div>
+<!---  "auth.user$ | async as user" -->
+
+
+<div *ngIf="notesT.notes$ | async as blotes" >
+	Checking Notes
+</div>
+
+<div  *ngIf="auth.user$ | async as user" >
+	<li>Checking User</li>
+</div>

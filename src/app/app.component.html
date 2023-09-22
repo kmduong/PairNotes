@@ -1,12 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<app-main-nav (searchEvent)="receiveSearch($event)"> 
+<app-main-nav id="sideBar" (searchEvent)="receiveSearch($event)"> 
 </app-main-nav>
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-</div>
 
+
+
+<!---
 <p><label for="text">Write content here...</label></p>
     <textarea 
 	    
@@ -14,13 +12,14 @@
         rows="10" 
         cols="47" 
         placeholder="Write some HTML content here..." 
-        [(ngModel)]="srcDocContent"></textarea>
+		[(ngModel)]="srcDocContent"></textarea>
+		
 
-    <p>Preview HTML content in IFRAME</p>
+    <p>Preview HTML content in IFRAME</p> --->
   <!---  <iframe id="theWYSIWYG"
         sandbox="allow-same-origin" 
         [attr.srcDoc]="srcDocContent"></iframe> --->
-		
+	<!---	
 		<div id="textEditor">
 	<div id="theRibbon">
 		<button id="boldButton" (click)="handleBold()" title="button"><b>B</b></button>
@@ -52,7 +51,6 @@
 		<button id="unLinkButton" title="Remove Link" (click)="handleUnLink()"><b>Unlink</b></button>
 		<button id="undoButton" title="Undo" (click)="handleUndo()"><b>&larr;</b></button>
 		<button id="redoButton" title="Redo" (click)="handleRedo()"><b>&rarr;</b></button>
-		<button id="saveButton" title="Save" (click)="save()"><b>Save</b></button>
 	</div>
 	
 	<div id="textEditor">
@@ -61,11 +59,7 @@
 		</div>
 	</div>
 </div>
-<ul>
-  <li class="text" *ngFor="let item of items | async">
-    {{item.name}}
-  </li>
-</ul>
+		--->
 		
 <router-outlet></router-outlet>
 

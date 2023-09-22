@@ -1,0 +1,34 @@
+h1 {
+  text-align: center;
+}
+.container{
+    font-family: courier;
+    width: 40%;
+    border-style: solid;
+    border-width: 2px;
+    border-bottom: transparent;
+}
+
+.container:hover{
+    background-color: gray;
+}
+
+div.title{
+    font-size: 24px;
+    font-weight: bold;
+    color: #000058;
+
+}
+div.tags{
+    font-size: 16px;
+    color: black;
+}
+
+@media (max-width: 700px) {
+    div.title{
+        font-size: 18px;
+    }
+    div.tags{
+        font-size: 12px;
+    }
+}

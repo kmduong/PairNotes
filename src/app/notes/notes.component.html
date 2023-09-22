@@ -1,0 +1,36 @@
+
+  <div style="margin: auto; width: 50%; text-align:center; margin-top: 4%">
+
+   <h1>Enter Note Details:</h1>
+   <div style="width: 30%; margin: auto " *ngIf="auth.user$ | async as user">
+    <form #form='ngForm'  >
+    <div class="form-group"> 
+      <label>Name of Note</label>
+	  <br>
+      <mat-form-field class="displayName"><input matInput type="text" name='name' [(ngModel)]='name' placeholder="Enter Name"></mat-form-field>
+	  <br>
+      <label>Lecture Number</label><br>
+      <mat-form-field class="displayName"><input matInput type="text" name='Lecture' [(ngModel)]='lecture' placeholder="Enter Lecture"></mat-form-field>
+	  <br>
+      <label>Course</label>
+	  <br>
+      <mat-form-field class="displayName"><input matInput type="text" name='course' [(ngModel)]='course' placeholder="Enter Course"></mat-form-field>
+	  <br>
+      <button class="btn btn-primary" name='userid' (click)="onSubmit2(user.displayName, user.uid, user.email)" >New Note</button>
+    </div>
+  </form>
+
+   </div>
+   <div  *ngIf="auth.user$ | async as user" >
+   <div *ngIf="notes.note$ | async as blotes" >
+    Checking: 
+    <li>Name: {{blotes.name}}</li>
+    <li>Lecture Number: {{blotes.lecture}}</li>
+    <li>Course: {{blotes.course}}</li>
+    <li>Owned By: {{blotes.ownedBy}}</li>
+    <li>ID of Owner: {{blotes.ownedByID}}</li>
+    <li *ngFor="let listofEmails of blotes.canEdit" >Can Edit: {{listofEmails}}</li>
+    <button class="btn btn-primary" name='userid' [routerLink]="['../text-editor', {docID: blotes.id}]">Confirm</button>
+  </div>
+</div>
+  </div>

@@ -1,0 +1,43 @@
+
+ 
+<h1>{{filter}} Notes</h1>
+<div *ngIf="filter=='All' ; then allNotes else filteredNotes">
+
+</div>
+
+
+
+<ng-template #allNotes>
+<div *ngFor="let item of noteC | async">
+  <div *ngIf="item.name" >
+    <div class=container >
+   <div [routerLink]="['../text-editor', {docID: item.id}]" class="title"> <u>{{item.name}}</u>
+      <div class=tags >Rating: {{item.upvotes}}</div>
+      <div class=tags >Course: {{item.course}}</div>
+      <div class=tags >Lecture: {{item.lecture}}</div>
+      <div class=tags>Tags:  <span *ngFor="let listofTags of item.tags"> {{listofTags}} </span></div>
+      <div class=tags >By: {{item.ownedBy}}</div>
+   </div>
+  </div>
+</div>
+</div>
+</ng-template>
+
+
+<ng-template #filteredNotes>
+    <div *ngFor="let item of noteC | async">
+      <div *ngIf="item.name" >
+          <div *ngIf="item.course == filter">
+        <div class=container >
+       <div [routerLink]="['../text-editor', {docID: item.id}]" class="title"> <u>{{item.name}}</u>
+          <div class=tags >Rating: {{item.upvotes}}</div>
+          <div class=tags >Course: {{item.course}}</div>
+          <div class=tags >Lecture: {{item.lecture}}</div>
+          <div class=tags>Tags:  <span *ngFor="let listofTags of item.tags"> {{listofTags}} </span></div>
+          <div class=tags >By: {{item.ownedBy}}</div>
+       </div>
+      </div>
+    </div>
+    </div>
+    </div>
+</ng-template>

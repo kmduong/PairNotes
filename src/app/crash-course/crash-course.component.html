@@ -1,0 +1,20 @@
+<div style="margin: auto; width: 50%; text-align:center; margin-top: 4%">
+
+<div style="width: 30%; margin: auto " >
+  <h3>Crash Course:</h3>
+
+    <form #form='ngForm'  >
+    <div class="form-group"> 
+      <label>Course</label>
+	  <br>
+      <mat-form-field class="displayName"><input matInput type="text" [(ngModel)]='courseName' name='course' placeholder="Enter Name"></mat-form-field>
+	  <br>
+      <label>Lecture Number</label><br>
+      <mat-form-field class="displayName"><input matInput type="text" [(ngModel)]='lectureNumber' name='Lecture' placeholder="Enter Lecture"></mat-form-field>
+	  <br>
+
+      <button class="btn btn-primary" name='summary' (click)="onSubmit()" >Generate Summary</button>
+    </div>
+  </form>
+   </div>
+</div>

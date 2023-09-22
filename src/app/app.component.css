@@ -33,8 +33,19 @@ div#theRibbon > input {
 div#theRibbon > button:hover{
 	background-color: rgb(20,90,70);
 	transition: all 0.3s linear 0s;
+
 }
 
+div#theTextEditor{
+	
+          top: 0;
+          left: 0;
+	
+}
+
+#sideBar{
+
+}
 
 iframe#theWYSIWYG{
 	height: 100%;
